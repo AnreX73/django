@@ -1,0 +1,42 @@
+{% extends 'smart/base.html' %}
+{% load sm_tags %}
+
+{% block content %}
+ <!-- меню мининавигации-->
+{%show_mini_navigation%}
+ <!-- конец меню мининавигации-->
+
+<div class="menu_wrapper">
+<!-- меню фотоуслуг-->
+
+    <div class="services_menu ">
+    {% for serv in services %}
+         {% if serv.is_published %}
+        <a href="{{serv.get_absolute_url}}"><figure class="menu_item"> <img class="menu_image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
+            <figcaption> {{serv.title}}</figcaption></figure></a>
+        {%endif%}
+    {% endfor %}
+    </div>
+    <!-- конец меню фотоуслуг-->
+
+  <!-- меню навигации-->
+{% show_navigaition %}
+<!-- конец меню навигации-->
+
+
+<!-- меню фотосувениров-->
+    <div class="services_menu ">
+{% for serv in souvenirs %}
+         {% if serv.is_published %}
+        <a href="{{serv.get_absolute_url}}"><figure class="menu_item"> <img class="menu_image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" /> <figcaption> {{serv.title}}</figcaption></figure></a>
+        {%endif%}
+    {% endfor %}
+    </div>
+    <!--конец  меню фотосувениров-->
+
+</div>
+
+{% endblock content %}
+
+
+

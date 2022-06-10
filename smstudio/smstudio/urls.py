@@ -25,6 +25,7 @@ from smstudio import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('smart.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

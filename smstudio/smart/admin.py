@@ -13,20 +13,47 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+class PostAdminForm(forms.ModelForm):
+    content = forms.CharField(label='Сообщение', required=False, widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Post
+        fields = '__all__'
+
+
 class PostAdmin(admin.ModelAdmin):
+    form = PostAdminForm
     list_display = ('id', 'title', 'is_published',)
     list_display_links = ('id', 'title')
     search_fields = ('title',)
+
+
+class PricesAdminForm(forms.ModelForm):
+    content = forms.CharField(label='Инфоромация о ценах', required=False, widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Prices
+        fields = '__all__'
 
 
 class PricesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'is_published',)
+    form = PricesAdminForm
+    list_display = ('id', 'title', 'service', 'is_published')
     list_display_links = ('id', 'title')
-    search_fields = ('title',)
+    search_fields = ('title', 'service')
     prepopulated_fields = {'slug': ('title',)}
 
 
+class ExtraAdminForm(forms.ModelForm):
+    content = forms.CharField(label='Дополнительная информация ', required=False, widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Extra
+        fields = '__all__'
+
+
 class ExtraAdmin(admin.ModelAdmin):
+    form = ExtraAdminForm
     list_display = ('id', 'title', 'is_published',)
     list_display_links = ('id', 'title')
     search_fields = ('title',)
@@ -34,15 +61,20 @@ class ExtraAdmin(admin.ModelAdmin):
 
 
 class NavAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'image', 'annotations1', 'annotations2')
+    list_display = ('id', 'title', 'gethtmlPhoto', 'annotations1', 'annotations2')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     save_on_top = True
 
+    def gethtmlPhoto(self, picture):
+        if picture.image:
+            return mark_safe(f"<img src='{picture.image.url}' width=50>")
+    gethtmlPhoto.short_description = 'миниатюра'
+
 
 class ServicesAdminForm(forms.ModelForm):
-    annotation = forms.CharField(label='Рекламное описание ', widget=CKEditorUploadingWidget())
+    annotation = forms.CharField(label='Рекламное описание ', required=False, widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Services
@@ -51,7 +83,7 @@ class ServicesAdminForm(forms.ModelForm):
 
 class ServicesAdmin(admin.ModelAdmin):
     form = ServicesAdminForm
-    list_display = ('id', 'title', 'getHtmlPhoto', 'time_create', 'is_published', 'cat',)
+    list_display = ('id', 'title', 'getHtmlPhoto', 'cat', 'time_create', 'is_published')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
     list_editable = ('is_published',)

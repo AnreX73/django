@@ -30,7 +30,7 @@ class Post(models.Model):
 
 
 class Nav(models.Model):
-    title = models.CharField(max_length=100, db_index=True, verbose_name='котакты и навигация')
+    title = models.CharField(max_length=100, db_index=True, verbose_name='элемент навигации')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
     image = models.ImageField(upload_to="images", blank=True, verbose_name='Изображение')
     annotations1 = models.TextField(blank=True, verbose_name='первое значение')
@@ -41,7 +41,7 @@ class Nav(models.Model):
 
     class Meta:
         verbose_name = 'контакты и навигацию'
-        verbose_name_plural = '5.Контакты и навигация'
+        verbose_name_plural = '5.НЕ трогать'
         ordering = ['id']
 
 
@@ -59,8 +59,8 @@ class Services(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('show_service', kwargs={'service_slug': self.slug})
+    # def get_absolute_url(self):
+        # return reverse('show_service', kwargs={'service_slug': self.slug})
 
     class Meta:
         verbose_name = 'Фотоуслуги и сувениры'
