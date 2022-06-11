@@ -23,6 +23,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = '6.Новости'
@@ -59,8 +60,8 @@ class Services(models.Model):
     def __str__(self):
         return self.title
 
-    # def get_absolute_url(self):
-        # return reverse('show_service', kwargs={'service_slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('show_service', kwargs={'service_slug': self.slug})
 
     class Meta:
         verbose_name = 'Фотоуслуги и сувениры'
