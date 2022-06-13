@@ -18,19 +18,8 @@
        <div class="subitem annotation">{{show_service.annotation|safe}}</div>
        <div class="subitem "><b>{{show_service.sub_title1}}</b>
 
-           <div class="subitem_content">
-               <p>{{show_service.content1|safe}}
 
-           </div>
-       </div>
-
-<!--               <div class="services_menu ">-->
-<!--{% for serv in souvenirs %}-->
-<!--         {% if serv.is_published %}-->
-<!--        <a href="{{serv.get_absolute_url}}"><figure class="menu_item"> <img class="menu_image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" /> <figcaption> {{serv.title}}</figcaption></figure></a>-->
-<!--        {%endif%}-->
-<!--    {% endfor %}-->
-<div class="items-body">
+<div class="items-body">   
     {% for price in prices %}
 
      {% if price.service_id == show_service.id %}

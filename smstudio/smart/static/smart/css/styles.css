@@ -91,10 +91,9 @@ h6 {
 
 body {
 font-family: 'Oswald', sans-serif;
-padding-bottom:25px;
 height:100%;
-
 }
+
 a{
   text-decoration: none;
   color:black;
@@ -104,22 +103,18 @@ h1{
 font-size: 2rem;
 }
 
-
-
 h2{
-font-size: 1.5rem;
+font-size: 1.7rem;
 }
-span{
 
-color:rgba(0, 0, 0, 0.2);
-}
 
 .all_content_wrapper{
 width: 100%;
 max-width: 1366px;
 margin: 0 auto;
 }
-/*обертка навигации*/
+
+/* навигация*/
 .nav_wrapper {
   background-color: rgba(0, 0, 0, .05);
   border-radius: 10px;
@@ -129,9 +124,8 @@ margin: 0 auto;
   grid-template-columns: 1fr;
   justify-items: center;
   margin-top:10px;
-
 }
-/* элементынавигации*/
+
 .nav_item {
   line-height: 1.3rem;
   text-align: center;
@@ -142,19 +136,36 @@ margin: 0 auto;
 width:210px;
 height:140px;
 }
-.services_item{
-background-size: contain;
-}
 
 .serv-image{
 max-width:75%;
 height:auto;
 }
+
+@media (max-width: 1302px) {
+  .nav_image{
+  width:140px;
+  height:95px;
+  }
+  .serv-image{
+    max-width:95%;
+    height:auto;
+    }
+  .nav_item {
+    line-height:1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 768px){
 .nav_wrapper{
 display:none;
 }
 }
+/*  конец  навигации*/
+
+/* мини навигация*/
 .mini_nav_wrapper{
 z-index:11;
 width: 100%;
@@ -170,8 +181,6 @@ box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
 padding:7px;
 margin-bottom:20px;
 }
-
-
 .mini_nav_image{
 width:60px;
 height:40px;
@@ -182,19 +191,24 @@ height:50px;
 width:100%;
 background:rgb(249, 245, 230);
 z-index:10;
-}.margin-div-2{
+}
+.margin-div-2{
 position: relative;
 height:50px;
 width:100%;
 
 z-index:9;
 }
+/*конец  мини навигация*/
+
+
+
 @media (min-width: 769px){
 .mini_nav_wrapper, .margin-div{
 display:none;
 }
 }
-/*  конец элементы навигации*/
+
 
 /*обертка главного меню*/
 
@@ -278,10 +292,15 @@ flex: 1 1 auto;
 padding:20px;
 display:grid;
 gap: 15px;
-grid-template-columns: 1fr 1.3fr;
+grid-template-columns: 1fr 1fr ;
 justify-content: space-between;
-
 }
+
+.item-title > span{
+  color:rgba(0, 0, 0, 0.2);
+  }
+
+
 .subitem{
 display:flex;
 flex-direction:column;
@@ -289,6 +308,7 @@ align-items:center;
 justify-content:center;
 padding:20px;
 font-size: 1.5rem;
+background-color: #fff;
 
 }
 .annotation{
@@ -330,11 +350,9 @@ font-size: 1.5rem;
  border-radius: 10px;
  box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
  padding:10px;
-text-align:center;
-white-space: nowrap;
+ text-align:center;
+ white-space: nowrap;
 }
-
-
 /*конец страница услуги*/
 
 /* страница контакты*/
@@ -379,7 +397,7 @@ width:40px;
 height:40px;
 }
 .map{
-max-weight:100%;
+max-width:100%;
 }
 .contacts-footer {
   min-width:1vw;
@@ -418,7 +436,7 @@ align-items:center;
 @media (max-width: 768px) {
 .map{
 display:none;
-max-weight:100%;
+max-width:100%;
 }
 .contacts-info-wrapper{
 display:grid;
@@ -430,21 +448,12 @@ align-items:center;
 @media (min-width: 769px) {
 .mini-map{
 display:none;
-max-weight:100%;
+max-width:100%;
 }
 }
 /*конец страница контакты*/
 
-@media (max-width: 1302px) {
-.nav_image{
-width:140px;
-height:95px;
-}
-.nav_item {
-  line-height:1rem;
-  text-align: center;
-  font-size: 1rem;
-}
+
 .menu_image{
 width: 90px;
 height: 80px;
@@ -466,7 +475,7 @@ font-size: 1rem;
 font-size: 1.2rem;
 }
 
-}
+
 
 @media (max-width: 900px) {
 .annotation{
