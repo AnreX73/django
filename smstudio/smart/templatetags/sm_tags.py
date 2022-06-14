@@ -28,7 +28,7 @@ def show_mini_navigation():
         phoneIcon = Nav.objects.get(title='телефон')
         return {'navlogo': navlogo,
                 'servicesIcon': servicesIcon,
-                'suvenirsIcon': suvenirsIcon,
+                'souvenirsIcon': suvenirsIcon,
                 'adressIcon': adressIcon,
                 'phoneIcon': phoneIcon,
                 }

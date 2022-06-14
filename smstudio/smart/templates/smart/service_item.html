@@ -3,65 +3,59 @@
 {% block content %}
 
 {%show_mini_navigation%}
-<div class="item-allcontent-whrapper">
+<div class="item-allcontent-wrapper">
  <!-- меню навигации-->
 {% show_navigaition %}
     <!-- конец меню навигации-->
-<div class="items-content-whrapper">
-    <h1 class="item-title">
-        <span>{{show_service.cat}}>></span>  {{title}}
-    </h1>
-<div class="items-body">
+    <div class="item-content-wrapper">
+
+     <div class="item-title-wrapper">
+        <h1 class="item-title">
+            <span>{{show_service.cat}}>></span>  {{title}}
+        </h1>
+    </div>   
+  
+
+    <div class="item-description-wrapper">
+        <div class="item-description"><img class="item_image" src="{{show_service.page_image.url}}" alt="{{serv.title}}"></div> 
+        <div class="item-description">{{show_service.annotation|safe}}</div> 
+    </div> 
+
+    <div class="prices-wrapper">   
+        {% for price in prices %}
+
+        {% if price.service_id == show_service.id %}
+
+    <div class="price-block">
+        <div><b>{{price.title}}</b></div>
+        <div class="price-content">{{price.content|safe}}</div>
+        <div class="price-link">{{price.extraLink}}</div>
+    </div>
+        {%endif%}
+        {% endfor %}
+
+    </div>
 
 
-       <div class="subitem"><img class="item_image" src="{{show_service.page_image.url}}" alt="{{serv.title}}"></div>
-       <div class="subitem annotation">{{show_service.annotation|safe}}</div>
-       <div class="subitem "><b>{{show_service.sub_title1}}</b>
-
-
-<div class="items-body">   
-    {% for price in prices %}
-
-     {% if price.service_id == show_service.id %}
-
-   <div class="subitem"><b>{{price.title}}</b>
-       <div class="subitem_content">
-               {{price.content|safe}}
-
-           </div>
-       </div>
-    {%endif%}
-    {% endfor %}
-
-</div>
-
-
-       </div>
-
-
-</div>
-
-
-
-    <div class="footer">
+    <div class="price-footer">
         {% if show_service.cat_id == 1 %}
         {% for serv in services %}
          {% if serv.is_published %}
          <a href="{{serv.get_absolute_url}}">
-           <div class="footer-menu">{{serv.title}}</div> </a>
+           <div class="price-footer-menu">{{serv.title}}</div> </a>
         {%endif%}
         {% endfor %}
         {% else %}
         {% for serv in souvenirs %}
          {% if serv.is_published %}
          <a href="{{serv.get_absolute_url}}">
-           <div class="footer-menu">{{serv.title}}</div> </a>
+           <div class="price-footer-menu">{{serv.title}}</div> </a>
         {%endif%}
         {% endfor %}
 
          {%endif%}
     </div>
 
-</div>
-</div>
+</div> 
+
 {% endblock content %}

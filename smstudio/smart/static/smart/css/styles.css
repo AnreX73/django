@@ -163,6 +163,10 @@ height:auto;
 display:none;
 }
 }
+/* @media (max-width: 1366px){}
+@media (max-width: 1280px){}
+@media (max-width: 1024px){}
+@media (max-width: 768px){} */
 /*  конец  навигации*/
 
 /* мини навигация*/
@@ -277,67 +281,81 @@ height: 150px;
 
 /* страница услуги*/
 
-.item-allcontent-whrapper{
+.item-allcontent-wrapper{
 display:grid;
 grid-template-columns: 1fr 4fr;
-
 }
+@media (max-width: 768px){
+  .item-allcontent-wrapper{
+    grid-template-columns: 1fr ;
+  }
+  }
+
+.item-content-wrapper{
+  min-height:100%;
+  margin-left:10px;
+  display:grid;
+  grid-template-columns:1fr;
+  }
+
 .item-title{
 text-align:center;
 margin-top:20px;
 }
-.items-body{
-line-height: 2rem;
-flex: 1 1 auto;
-padding:20px;
-display:grid;
-gap: 15px;
-grid-template-columns: 1fr 1fr ;
-justify-content: space-between;
-}
-
 .item-title > span{
   color:rgba(0, 0, 0, 0.2);
   }
 
+.item-description-wrapper{
+  display:grid;
+  gap: 5px;
+  grid-template-columns: 2fr 3fr ;
+  /* justify-items: center; */
+  justify-content:space-between; 
+  padding: 10px;  
+}
+.item-description{
+  background-color: rgba(215, 235, 145, 0.7); 
+  text-align:center;
+  padding: 10px;
+  font-size: 1.3rem;
+}
+.item_image{
+  height: auto;
+  max-width: 100%;
+  }
 
-.subitem{
+.prices-wrapper{
+padding:20px;
+display:grid;
+gap: 10px;
+grid-template-columns: 1fr 1fr  ;
+justify-content: space-between;
+}
+
+.price-block{
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-padding:20px;
+padding:10px;
 font-size: 1.5rem;
-background-color: #fff;
+background-color: rgba(230, 193, 193, 0.7);
 
 }
-.annotation{
-font-size: 1.3rem;
-}
-
-
-.items-content-whrapper{
-min-height:100%;
-margin-left:10px;
-display:flex;
-flex-direction:column;
-}
-.item_image{
-width:350px;
-height: auto;
-}
-
-.subitem_content{
+.price-content{
 font-size: 1.5rem;
 text-align:center;
 }
 .content-link{
 font-size: 1.5rem;
 }
-.item_image{
- max-width: 100%;
+.price-link{
+  font-size: 1.2rem;
+  color:rgba(0, 0, 0, 0.5);
 }
-.footer {
+
+.price-footer {
   display: grid;
   gap:10px;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -345,7 +363,7 @@ font-size: 1.5rem;
   padding:10px;
 }
 
-.footer-menu{
+.price-footer-menu{
  background-color: rgba(0, 0, 0, .05);
  border-radius: 10px;
  box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
@@ -468,23 +486,23 @@ width:130px;
 height: 115px;
 }
 /*конец меню фотоуслуг мини*/
-.annotation{
+/* .annotation{
 font-size: 1rem;
 }
 .subitem_content{
 font-size: 1.2rem;
-}
+} */
 
 
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
 .annotation{
 font-size: 0.9rem;
 }
 .subitem_content{
 font-size: 1.0rem;
 }
-}
+} */
 
 @media (max-width:768px) {
 .menu_wrapper{
@@ -510,7 +528,7 @@ font-size: 1.0rem;
 }
 /* мини страница услуги*/
 
-.item-allcontent-whrapper{
+/* .item-allcontent-whrapper{
 display:grid;
 grid-template-columns: 1fr ;
 
@@ -580,7 +598,7 @@ font-size: 1.5rem;
 text-align:center;
 white-space: nowrap;
 }
-
+ */
 
 /*конец мини страница услуги*/
 }
