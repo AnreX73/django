@@ -8,6 +8,8 @@ def index(request):
         'title': 'СМАРТ ФОТО',
         'services': Services.objects.filter(cat_id=1),
         'souvenirs': Services.objects.filter(cat_id=2),
+        'services_title':'фотоуслуги',
+        'souvenirs_title':'фотосувениры',
     }
     return render(request, 'smart/index.html', context=context)
 

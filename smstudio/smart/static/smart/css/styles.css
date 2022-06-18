@@ -132,6 +132,13 @@ margin: 0 auto;
   font-size: 1.3rem;
 }
 
+.nav_item:hover{
+  background-color: rgba(0, 0, 0, .02);
+  border-radius: 10px;
+  box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
+  padding:2px;
+ }
+
 .nav_image{
 width:210px;
 height:140px;
@@ -158,7 +165,7 @@ height:auto;
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 1024px){
 .nav_wrapper{
 display:none;
 }
@@ -177,13 +184,14 @@ position:fixed;
 display:grid;
 grid-template-columns:  repeat(4,1fr);
 gap:7px;
-justify-content: space evenly;
+justify-content: space space-between;
 align-items:center;
 background-color: rgba(0, 0, 0, .05);
 border-radius: 5px;
 box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
 padding:7px;
 margin-bottom:20px;
+font-size: 1.3rem;
 }
 .mini_nav_image{
 width:60px;
@@ -203,28 +211,32 @@ width:100%;
 
 z-index:9;
 }
+
+@media (min-width: 1025px){
+  .mini_nav_wrapper, .margin-div{
+  display:none;
+  }
+  }
+  @media (max-width: 480px){
+    .mini_nav_wrapper{
+    font-size: 1.1rem;
+    }
+    }
 /*конец  мини навигация*/
 
 
+/*главное меню*/
 
-@media (min-width: 769px){
-.mini_nav_wrapper, .margin-div{
-display:none;
-}
-}
-
-
-/*обертка главного меню*/
-
-.menu_wrapper{
+.menu-wrapper{
  display: grid;
  grid-template-columns:  3fr 1fr 3fr;
  gap:10px;
  justify-items: space between;
  margin-top:10px;
-
 }
-
+.services-wrapper{
+  text-align: center;
+}
 
 .services_menu {
  display: grid;
@@ -235,47 +247,108 @@ display:none;
  grid-template-rows: repeat(6, max-content);
  padding:10px;
 
-
 }
-.menu_item{
-
+.menu-item{
 text-align:center;
 font-size: 1.3rem;
-}
-.menu_image{
-width: 110px;
-height: 100px;
+padding: 2px;
 }
 
+.menu-image{
+width: 70%;
+height: auto;
+}
+.menu-item:hover{
+  background-color: rgba(0, 0, 0, .02);
+   border-radius: 10px;
+   box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
+   padding:4px;
+ }
+
+ @media (max-width: 1280px){
+  .menu-item{
+    text-align:center;
+    font-size: 1.2rem;
+    padding: 1px;
+    }
+  }
+ @media (max-width: 1024px){
+  .menu-wrapper{
+    grid-template-columns:  1fr 1fr ;
+    gap:5px;
+   }
+   .menu-image{
+    width: 80%;
+    }
+  }
+  @media (max-width: 768px){
+    .menu-wrapper{
+      grid-template-columns:1fr;
+     }
+     .menu-image{
+      width: 60%;
+      }
+    .menu-item{
+      font-size: 1.1rem;
+      }
+    }
+    @media (max-width: 533px){
+      .menu-item{
+        font-size: 1.2rem;
+        }
+        .menu-image{
+          width: 75%;
+          }
+      }
+    @media (max-width: 360px){
+      .menu-item{
+        font-size: 1.1rem;
+        }
+        .menu-image{
+          width: 85%;
+          }
+      }
+
+/*конец главное меню*/
+
+
 /*меню фотоуслуг*/
-.along_services_menu{
+.service-page-wrapper{
+  padding: 15px;
+  display: grid;
+  grid-template-columns:  0.5fr 4.5fr;
+  justify-content: space-around;
+}
+.services-page{
+  text-align: center;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+.services-page-title{
+  margin-top:10px;
+  font-size: 3rem;
+  text-align:center;
+  }
+.services-page-menu{
  display: grid;
  gap:10px;
  grid-template-columns:  repeat(3,1fr);
  justify-items: space between;
  margin-top:10px;
- grid-template-rows: repeat(6, max-content);
+ /* grid-template-rows: repeat(6, max-content); */
  padding:10px;
-
 }
-
-.services_title{
-margin-top:10px;
-font-size: 3rem;
-text-align:center;
-}
-.menu_image_serv{
-width: 160px;
-height: 150px;
+.services-page-image{
+width: 50%;
+height: auto;
 }
 /*конец меню фотоуслуг*/
 
 /* меню фотосувениров*/
-.menu_wrapper_souv{
-  display: grid;
-  grid-template-columns:  1fr 3fr;
-  justify-content: space-around;
-}
+
 /*конец меню фотосувениров*/
 
 
@@ -285,7 +358,7 @@ height: 150px;
 display:grid;
 grid-template-columns: 1fr 4fr;
 }
-@media (max-width: 768px){
+@media (max-width: 1024px){
   .item-allcontent-wrapper{
     grid-template-columns: 1fr ;
   }
@@ -608,10 +681,6 @@ white-space: nowrap;
 width:90px;
 height: 80px;
 }
-
-
-
-
 }
 
 

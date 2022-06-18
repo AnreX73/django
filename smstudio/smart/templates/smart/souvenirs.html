@@ -4,23 +4,24 @@
 
 {%show_mini_navigation%}
 
-<h1 class="services_title"> {{title}} </h1>
-<div class="menu_wrapper_souv">
-
-    <!-- меню навигации-->
-{% show_navigaition %}
-<!-- конец меню навигации-->
-
-     <div class="along_services_menu ">
+<div class="service-page-wrapper">
+     <!-- меню навигации-->
+    {% show_navigaition %}
+     <!-- конец меню навигации-->
+    
+     <div class="services-page">
+        <h1 class="services-page-title"> {{title}} </h1>
+   
+     <div class="services-page-menu">
     {% for serv in services %}
          {% if serv.is_published %}
-       <a href="{{serv.get_absolute_url}}"><figure class="menu_item"> <img class="menu_image_serv" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
-           <figcaption> {{serv.title}}</figcaption></figure></a>
+         <a href="{{serv.get_absolute_url}}"> <figure class="menu-item"> <img class="services-page-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
+        <figcaption> {{serv.title}}</figcaption> </figure> </a>
         {%endif%}
     {% endfor %}
+    </div>
     </div>
 
 
 </div>
-
 {% endblock content %}
