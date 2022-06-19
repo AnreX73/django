@@ -345,16 +345,44 @@ height: auto;
 width: 50%;
 height: auto;
 }
+
+@media (max-width: 1024px){
+  .service-page-wrapper{
+    grid-template-columns:   1fr ;
+    gap:5px;
+   }
+  
+  }
+@media (max-width: 1024px){
+  .services-page-image{
+    width: 45%;
+    }
+  }
+@media (max-width: 768px){
+  .services-page-image{
+    width: 60%;
+    }
+  }
+@media (max-width: 533px){
+  .services-page-image{
+    width: 75%;
+    }
+  }
+@media (max-width: 360px){
+  .service-page-wrapper{
+    grid-template-columns:   1fr ;
+    gap:5px;
+   }
+   .services-page-image{
+    width: 90%;
+    }
+  }
 /*конец меню фотоуслуг*/
-
-/* меню фотосувениров*/
-
-/*конец меню фотосувениров*/
-
 
 /* страница услуги*/
 
 .item-allcontent-wrapper{
+font-size: 1.3rem;
 display:grid;
 grid-template-columns: 1fr 4fr;
 }
@@ -388,7 +416,7 @@ margin-top:20px;
   padding: 10px;  
 }
 .item-description{
-  background-color: rgba(215, 235, 145, 0.7); 
+  /* background-color: rgba(215, 235, 145, 0.7);  */
   text-align:center;
   padding: 10px;
   font-size: 1.3rem;
@@ -411,21 +439,26 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-padding:10px;
+padding:2px;
 font-size: 1.5rem;
-background-color: rgba(230, 193, 193, 0.7);
-
+/* background-color: rgba(230, 193, 193, 0.7); */
 }
 .price-content{
-font-size: 1.5rem;
 text-align:center;
 }
-.content-link{
-font-size: 1.5rem;
+.price-content > table{
+  border-collapse: collapse;
+  background:rgb(249, 245, 230,0.5);
+  font-size: 1.2rem;
+  /* border: 1px solid grey; */
+}
+
+  th{
+  background:rgba(168, 165, 153, 0.5);
 }
 .price-link{
-  font-size: 1.2rem;
   color:rgba(0, 0, 0, 0.5);
+  
 }
 
 .price-footer {
@@ -443,6 +476,50 @@ font-size: 1.5rem;
  padding:10px;
  text-align:center;
  white-space: nowrap;
+}
+@media (max-width: 1080px){
+  .price-content > table{
+    font-size: 1.1rem;
+  }
+  }
+@media (max-width:768px){
+  .item-description-wrapper{
+    grid-template-columns: 1fr;
+  }
+  .item_image{
+    height: auto;
+    max-width: 50%;
+    }
+    .prices-wrapper{
+      grid-template-columns: 1fr;
+    }
+    .price-content > table{
+      font-size: 1.2rem;
+    } 
+  }
+  @media (max-width:533px){
+    .price-content > table{
+      font-size: 1rem;
+    } 
+    .item-allcontent-wrapper{
+      font-size: 1.2rem;
+  }
+  .item-title{
+    font-size: 1.4rem;
+  }
+  .item_image{
+    height: auto;
+    max-width: 60%;
+    }
+} 
+@media (max-width:360px){
+  .price-content > table{
+    font-size: 0.9rem;
+  } 
+  .item_image{
+    height: auto;
+    max-width: 75%;
+    }
 }
 /*конец страница услуги*/
 
