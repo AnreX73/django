@@ -89,6 +89,7 @@ class Prices(models.Model):
 
 class Extra(models.Model):
     extraContent = models.ForeignKey(Prices, on_delete=models.PROTECT, verbose_name='Дополнительня информация о...')
+    extra_image = models.ImageField(upload_to="images",blank=True, verbose_name='Изображение если есть')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
     content = models.TextField(blank=True, verbose_name='Подробное описание')
@@ -96,6 +97,9 @@ class Extra(models.Model):
 
     def __str__(self):
         return self.title
+        
+    def get_absolute_url(self):
+        return reverse('show_service', kwargs={'service_slug': self.slug})
 
     class Meta:
         verbose_name = 'Дополнительную информацию'

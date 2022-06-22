@@ -54,10 +54,16 @@ class ExtraAdminForm(forms.ModelForm):
 
 class ExtraAdmin(admin.ModelAdmin):
     form = ExtraAdminForm
-    list_display = ('id', 'title', 'is_published',)
+    list_display = ('id', 'title','getHtmlPhoto', 'is_published',)
     list_display_links = ('id', 'title')
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
+
+    def getHtmlPhoto(self, picture):
+        if picture.extra_image:
+            return mark_safe(f"<img src='{picture.extra_image.url}' width=50>")
+
+    getHtmlPhoto.short_description = 'миниатюра'
 
 
 class NavAdmin(admin.ModelAdmin):
@@ -105,4 +111,4 @@ admin.site.register(Post, PostAdmin)
 admin.site.register(Prices, PricesAdmin)
 admin.site.register(Extra, ExtraAdmin)
 
-admin.site.site_header = 'Smart studio'
+admin.site.site_header = 'СМАРТ ФОТО'

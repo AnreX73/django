@@ -38,5 +38,6 @@ def show_service(request, service_slug):
         'services': Services.objects.filter(cat_id=1),
         'souvenirs': Services.objects.filter(cat_id=2),
         'prices': Prices.objects.all(),
+        'extracontent': Extra.objects.all(),
     }
     return render(request, 'smart/service_item.html', context=context)

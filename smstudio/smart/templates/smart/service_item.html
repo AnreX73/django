@@ -1,12 +1,13 @@
 {% extends 'smart/base.html' %}
 {% load sm_tags %}
 {% block content %}
-
+   
 {%show_mini_navigation%}
 <div class="item-allcontent-wrapper">
  <!-- меню навигации-->
 {% show_navigaition %}
     <!-- конец меню навигации-->
+  
     <div class="item-content-wrapper">
 
      <div class="item-title-wrapper">
@@ -17,25 +18,36 @@
   
 
     <div class="item-description-wrapper">
-        <div class="item-description"><img class="item_image" src="{{show_service.page_image.url}}" alt="{{serv.title}}"></div> 
+        <div class="item-description-image"><img class="item_image" src="{{show_service.page_image.url}}" alt="{{serv.title}}"></div> 
         <div class="item-description">{{show_service.annotation|safe}}</div> 
     </div> 
 
     <div class="prices-wrapper">   
         {% for price in prices %}
+        {% if price.is_published %}
 
         {% if price.service_id == show_service.id %}
 
-    <div class="price-block">
+    <div class="price-block {{price.slug}}"">
         <div><b>{{price.title}}</b></div>
         <div class="price-content">{{price.content|safe}}</div>
         <div class="price-link">{{price.extraLink}}</div>
     </div>
         {%endif%}
+        {%endif%}
         {% endfor %}
 
     </div>
-
+    
+    {% comment %} <div class="extracontent-wrapper">
+        
+        {% for extra in extracontent %}
+        {% if extra.price_id == price.service_id %}
+            <h1>{{extra.title}}</h1>
+        {%endif%}    
+        {% endfor %}
+        </div>   {% endcomment %}
+        
 
     <div class="price-footer">
         {% if show_service.cat_id == 1 %}
