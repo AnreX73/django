@@ -28,25 +28,32 @@
 
         {% if price.service_id == show_service.id %}
 
-    <div class="price-block {{price.slug}}"">
+    <div class="price-block">
         <div><b>{{price.title}}</b></div>
         <div class="price-content">{{price.content|safe}}</div>
-        <div class="price-link">{{price.extraLink}}</div>
-    </div>
+        <div class="price-link {{price.slug}}">{{price.extraLink}}</div>
+        
+        {% for extra in extracontent %}
+            {% if extra.extraContent_id == price.id %}  
+              <div class="extracontent-wrapper">
+              <div class="extracontent">
+                <h1>{{extra.title}}</h1>
+                <img class="extra-image" src="{{extra.extra_image.url}}" alt="{{extra.title}}" /> 
+                <div><p>{{extra.content|safe}}</p></div>
+              </div>     
+              </div>     
+              {%endif%} 
+        {% endfor %}
+        
+
+        </div>
         {%endif%}
         {%endif%}
         {% endfor %}
 
     </div>
     
-    {% comment %} <div class="extracontent-wrapper">
-        
-        {% for extra in extracontent %}
-        {% if extra.price_id == price.service_id %}
-            <h1>{{extra.title}}</h1>
-        {%endif%}    
-        {% endfor %}
-        </div>   {% endcomment %}
+   
         
 
     <div class="price-footer">
