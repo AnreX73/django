@@ -31,20 +31,21 @@
     <div class="price-block">
         <div><b>{{price.title}}</b></div>
         <div class="price-content">{{price.content|safe}}</div>
-        <div class="price-link {{price.slug}}">{{price.extraLink}}</div>
+        <div class="price-link ">{{price.extraLink}}
         
         {% for extra in extracontent %}
             {% if extra.extraContent_id == price.id %}  
               <div class="extracontent-wrapper">
               <div class="extracontent">
-                <h1>{{extra.title}}</h1>
+                <span class="close-extra">&times;</span>
+                <h1 class="extra-title">{{extra.title}}</h1>
                 <img class="extra-image" src="{{extra.extra_image.url}}" alt="{{extra.title}}" /> 
-                <div><p>{{extra.content|safe}}</p></div>
+                <div class="extra-paragraph"><p>{{extra.content|safe}}</p></div>
               </div>     
               </div>     
               {%endif%} 
         {% endfor %}
-        
+    </div>
 
         </div>
         {%endif%}

@@ -16,7 +16,8 @@
 //     }
 // });
 
-// let openButton1 = document.querySelector('#detailBtn1');
+let openLink = document.querySelectorAll('.price-link');
+console.log(openLink)
 // let closeButton1 = document.querySelector('.close_modal');
 // openButton1.addEventListener("click",()=>openModal(mymodal_window));
 // closeButton1.addEventListener("click",()=>closeModal(mymodal_window));
