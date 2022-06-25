@@ -31,13 +31,13 @@
     <div class="price-block">
         <div><b>{{price.title}}</b></div>
         <div class="price-content">{{price.content|safe}}</div>
-        <div class="price-link ">{{price.extraLink}}
+        <div class="price-link js-open-modal" data-modal="{{price.slug}}">{{price.extraLink}}</div>
         
         {% for extra in extracontent %}
             {% if extra.extraContent_id == price.id %}  
-              <div class="extracontent-wrapper">
+              <div class="extracontent-wrapper modal js-overlay-modal" data-modal="{{price.slug}}">
               <div class="extracontent">
-                <span class="close-extra">&times;</span>
+                <span class="close-extra js-modal-close">&times;</span>
                 <h1 class="extra-title">{{extra.title}}</h1>
                 <img class="extra-image" src="{{extra.extra_image.url}}" alt="{{extra.title}}" /> 
                 <div class="extra-paragraph"><p>{{extra.content|safe}}</p></div>
@@ -45,7 +45,7 @@
               </div>     
               {%endif%} 
         {% endfor %}
-    </div>
+    
 
         </div>
         {%endif%}

@@ -54,9 +54,9 @@ class ExtraAdminForm(forms.ModelForm):
 
 class ExtraAdmin(admin.ModelAdmin):
     form = ExtraAdminForm
-    list_display = ('id', 'title','getHtmlPhoto', 'is_published',)
+    list_display = ('id', 'title','extraContent','getHtmlPhoto', 'is_published',)
     list_display_links = ('id', 'title')
-    search_fields = ('title',)
+    search_fields = ('title','extraContent',)
     prepopulated_fields = {'slug': ('title',)}
 
     def getHtmlPhoto(self, picture):
@@ -66,17 +66,17 @@ class ExtraAdmin(admin.ModelAdmin):
     getHtmlPhoto.short_description = 'миниатюра'
 
 
-class NavAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'gethtmlPhoto', 'annotations1', 'annotations2')
-    list_display_links = ('id', 'title')
-    search_fields = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
-    save_on_top = True
+# class NavAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'title', 'gethtmlPhoto', 'annotations1', 'annotations2')
+#     list_display_links = ('id', 'title')
+#     search_fields = ('title',)
+#     prepopulated_fields = {'slug': ('title',)}
+#     save_on_top = True
 
-    def gethtmlPhoto(self, picture):
-        if picture.image:
-            return mark_safe(f"<img src='{picture.image.url}' width=50>")
-    gethtmlPhoto.short_description = 'миниатюра'
+#     def gethtmlPhoto(self, picture):
+#         if picture.image:
+#             return mark_safe(f"<img src='{picture.image.url}' width=50>")
+#     gethtmlPhoto.short_description = 'миниатюра'
 
 
 class ServicesAdminForm(forms.ModelForm):
@@ -106,7 +106,7 @@ class ServicesAdmin(admin.ModelAdmin):
 
 admin.site.register(Services, ServicesAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Nav, NavAdmin)
+# admin.site.register(Nav, NavAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Prices, PricesAdmin)
 admin.site.register(Extra, ExtraAdmin)

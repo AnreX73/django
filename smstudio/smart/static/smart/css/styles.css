@@ -351,13 +351,11 @@ height: auto;
     grid-template-columns:   1fr ;
     gap:5px;
    }
-  
-  }
-@media (max-width: 1024px){
-  .services-page-image{
+   .services-page-image{
     width: 45%;
     }
   }
+
 @media (max-width: 768px){
   .services-page-image{
     width: 60%;
@@ -477,12 +475,9 @@ text-align:center;
   color:rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
-.price-link:after{
-  cursor: default;
-}
 
 .extracontent-wrapper{
-  /* display: none; */
+  display: none;
 	position: fixed;
 	z-index: 12;
 	left: 0;
@@ -522,11 +517,13 @@ text-align:center;
     float: right;
     font-size: 40px;
     font-weight: bold;
+    cursor: pointer;
    } 
   .extra-title{
     color:rgba(0, 0, 0);
   }
   .extra-image{
+    margin-top: 20px;
     max-width:360px;
     float:left; 
     padding: 0 20px;
@@ -555,9 +552,22 @@ text-align:center;
  text-align:center;
  white-space: nowrap;
 }
+@media (max-width: 1366px){
+  .extracontent{
+    max-width: 60%;
+  }
+}
+@media (max-width: 1024px){
+  .extracontent{
+    max-width: 65%;
+  }
+}
 @media (max-width: 1080px){
   .price-content > table{
     font-size: 1.1rem;
+  }
+  .extracontent{
+    max-width: 75%;
   }
   }
 @media (max-width:768px){
@@ -574,6 +584,9 @@ text-align:center;
     .price-content > table{
       font-size: 1.2rem;
     } 
+    .extracontent{
+      max-width: 85%;
+    }
   }
   @media (max-width:533px){
     .price-content > table{
@@ -589,6 +602,15 @@ text-align:center;
     height: auto;
     max-width: 60%;
     }
+    .extracontent{
+      max-width: 95%;
+      font-size: 1.2rem;
+    }
+    .extra-image{
+      max-width:260px;
+      float:left; 
+      padding: 0 10px;
+    }
 } 
 @media (max-width:360px){
   .price-content > table{
@@ -597,6 +619,15 @@ text-align:center;
   .item_image{
     height: auto;
     max-width: 75%;
+    }
+    .extracontent{
+      max-width: 95%;
+      font-size: 1.1rem;
+    }
+    .extra-image{
+      max-width:200px;
+      float:left; 
+      padding: 0 10px;
     }
 }
 /*конец страница услуги*/
