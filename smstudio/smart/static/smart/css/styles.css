@@ -107,6 +107,10 @@ h2{
 font-size: 1.7rem;
 }
 
+h3{
+font-size: 1.5rem;
+}
+
 
 .all_content_wrapper{
 width: 100%;
@@ -149,31 +153,11 @@ max-width:75%;
 height:auto;
 }
 
-/* @media (max-width: 1302px) {
-  .nav_image{
-  width:140px;
-  height:95px;
-  }
-  .serv-image{
-    max-width:95%;
-    height:auto;
-    }
-  .nav_item {
-    line-height:1rem;
-    text-align: center;
-    font-size: 1rem;
-  }
-} */
-
 @media (max-width: 1024px){
 .nav_wrapper{
 display:none;
 }
 }
-/* @media (max-width: 1366px){}
-@media (max-width: 1280px){}
-@media (max-width: 1024px){}
-@media (max-width: 768px){} */
 /*  конец  навигации*/
 
 /* мини навигация*/
@@ -240,24 +224,17 @@ z-index:9;
   z-index: 20;
   transition: .3s all;
 }
-
-
-
-
 .post-modal {
-  
-  /* Скрываем окна  */
+   /* Скрываем окна  */
   opacity: 0;
   visibility: hidden;
-  
   
   /*  Установаем ширину окна  */
   width: 100%;
   max-width: 500px;
-  
   /*  Центрируем и задаем z-index */
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 30; /* Должен быть выше чем у подложки*/
@@ -267,8 +244,12 @@ z-index:9;
   text-align: center;
   padding: 30px;
   border-radius: 3px;
-  background-color: #fff;
+  background:rgb(233, 229, 221);
   transition: 0.3s all;
+}
+.post-modal__content{
+  padding:7px;
+  font-size: 1.2rem ;
 }
 
 .post-modal.active,
@@ -288,6 +269,13 @@ z-index:9;
   fill: #444;
   cursor: pointer;
 }
+
+@media (max-width: 533px){
+  .post-modal__content{
+    padding:5px;
+    font-size: 1.1rem ;
+  }
+  }
 /* end Стили для модальных окон */
 
 /*главное меню*/

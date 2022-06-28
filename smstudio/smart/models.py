@@ -25,8 +25,8 @@ class Post(models.Model):
 
 
     class Meta:
-        verbose_name = 'Новость'
-        verbose_name_plural = '6.Новости'
+        verbose_name = 'Объявление'
+        verbose_name_plural = '6.Объявление'
         ordering = ['id']
 
 
