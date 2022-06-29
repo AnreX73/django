@@ -11,6 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
+    save_on_top = True
 
 
 class PostAdminForm(forms.ModelForm):
@@ -26,6 +27,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'is_published',)
     list_display_links = ('id', 'title')
     search_fields = ('title',)
+    save_on_top = True
 
 
 class PricesAdminForm(forms.ModelForm):
@@ -42,6 +44,7 @@ class PricesAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     search_fields = ('title', 'service')
     prepopulated_fields = {'slug': ('title',)}
+    save_on_top = True
 
 
 class ExtraAdminForm(forms.ModelForm):
@@ -58,6 +61,7 @@ class ExtraAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     search_fields = ('title','extraContent',)
     prepopulated_fields = {'slug': ('title',)}
+    save_on_top = True
 
     def getHtmlPhoto(self, picture):
         if picture.extra_image:
