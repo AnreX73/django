@@ -135,6 +135,9 @@ margin: 0 auto;
   text-align: center;
   font-size: 1.3rem;
 }
+.nav-contacts-link{
+  font-size: 1.4rem;
+}
 
 .nav_item:hover{
   background-color: rgba(0, 0, 0, .02);
@@ -243,13 +246,18 @@ z-index:9;
   box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
   text-align: center;
   padding: 30px;
-  border-radius: 3px;
-  background:rgb(233, 229, 221);
-  transition: 0.3s all;
+  border-radius: 8px;
+  background:rgb(238, 235, 230);
+  transition: 0.5s all;
 }
 .post-modal__content{
   padding:7px;
   font-size: 1.2rem ;
+  line-height: 1.5rem;
+}
+.post-modal__content > a{
+  text-decoration: underline ;
+  color:rgb(89, 8, 165);
 }
 
 .post-modal.active,
@@ -266,7 +274,7 @@ z-index:9;
   position: absolute;
   top: 20px;
   right: 20px;
-  fill: #444;
+  fill: rgb(230, 113, 5);
   cursor: pointer;
 }
 
@@ -560,7 +568,6 @@ text-align:center;
     -o-animation-duration: 1.0s;
     animation-duration: 1.0s;
     overflow: hidden;
-    /* background-image: url(../img/bg_canvas.jpg); */
   }
   @keyframes animatetop {
       from {margin:-20% auto; opacity:0}
@@ -692,8 +699,8 @@ text-align:center;
 
 /* страница контакты*/
 .contacts-title{
-margin-top:10px;
-font-size: 3rem;
+margin-top:15px;
+font-size: 2rem;
 text-align:center;
 }
 .contacts-wrapper{
@@ -734,6 +741,9 @@ height:40px;
 .map{
 max-width:100%;
 }
+.nav_image-mini{
+  max-width: 150px;
+}
 .contacts-footer {
   min-width:1vw;
   display: grid;
@@ -763,15 +773,21 @@ text-align:center;
 }
 .contacts-info-wrapper{
 display:grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(3, 1fr);
 gap:5px;
 align-items:center;
 }
+.contacts-logo{
+  display: none;
+}
+.nav_image-mini{
+  max-width: 100px;
+}
+
 }
 @media (max-width: 768px) {
 .map{
 display:none;
-max-width:100%;
 }
 .contacts-info-wrapper{
 display:grid;
@@ -779,153 +795,22 @@ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 gap:5px;
 align-items:center;
 }
+.contacts-wrapper{
+  gap:5px;
+  margin:5px;
+  }
+
 }
 @media (min-width: 769px) {
 .mini-map{
 display:none;
 max-width:100%;
 }
+
 }
 /*конец страница контакты*/
 
 
-.menu_image{
-width: 90px;
-height: 80px;
-}
-.menu_item{
-text-align:center;
-font-size: 1rem;
-}
-/* меню фотоуслуг мини*/
-.menu_image_serv{
-width:130px;
-height: 115px;
-}
-/*конец меню фотоуслуг мини*/
-/* .annotation{
-font-size: 1rem;
-}
-.subitem_content{
-font-size: 1.2rem;
-} */
-
-
-
-/* @media (max-width: 900px) {
-.annotation{
-font-size: 0.9rem;
-}
-.subitem_content{
-font-size: 1.0rem;
-}
-} */
-
-@media (max-width:768px) {
-.menu_wrapper{
- display: grid;
- grid-template-columns:  repeat(auto-fit, minmax(190px, 1fr));
- gap:30px;
- justify-items: space between;
- margin-top:10px;
-}
-.services_menu{
- display: grid;
- gap:10px;
- grid-template-columns:  repeat(auto-fit, minmax(80px, 1fr));
- justify-items: space around;
- margin-top:10px;
- grid-template-rows: repeat(6, max-content);
- padding:10px;
-}
-.menu_wrapper_souv{
-  display: grid;
-  grid-template-columns:  1fr ;
-  justify-content: space-around;
-}
-/* мини страница услуги*/
-
-/* .item-allcontent-whrapper{
-display:grid;
-grid-template-columns: 1fr ;
-
-}
-.item-title{
-text-align:center;
-margin-top:20px;
-}
-.items-body{
-line-height: 2rem;
-flex: 1 1 auto;
-padding:20px;
-display:grid;
-gap: 15px;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-justify-content: center;
-
-}
-.subitem{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-padding:20px;
-font-size: 1.5rem;
-
-}
-.annotation{
-font-size: 1.3rem;
-}
-
-
-.items-content-whrapper{
-min-height:100%;
-margin-left:10px;
-display:flex;
-flex-direction:column;
-}
-.item_image{
-width:350px;
-height: auto;
-}
-
-.subitem_content{
-font-size: 1.5rem;
-text-align:center;
-}
-.content-link{
-font-size: 1.5rem;
-}
-.item_image{
- max-width: 100%;
-}
-.footer {
-  display: grid;
-  gap:10px;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  justify-items: space-around;
-  padding:10px;
-}
-
-.footer-menu{
- background-color: rgba(0, 0, 0, .05);
- border-radius: 10px;
- box-shadow: 0 0 8px 8px rgba(247, 215, 170, .2) inset;
- padding:10px;
-text-align:center;
-white-space: nowrap;
-}
- */
-
-/*конец мини страница услуги*/
-}
-
-@media (max-width:480px) {
-.menu_image_serv{
-width:90px;
-height: 80px;
-}
-}
 
 
 

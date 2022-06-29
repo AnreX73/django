@@ -3,6 +3,7 @@
 
 {% block content %}
 <!--   модальное окно новости  -->
+ {% if posts.is_published %}
 <div class="post-modal" data-modal="1">
     
     <span class="post-modal__cross" > Х </span>
@@ -11,7 +12,8 @@
     <div class="post-modal__content">{{posts.content|safe}}</div>
 
  </div>
- <div class="post-overlay" id="post-overlay-modal">overlay</div>
+ <div class="post-overlay" id="post-overlay-modal"></div>
+ {%endif%}
   <!--  конец модальное окно новости  -->
 
  <!-- меню мининавигации-->

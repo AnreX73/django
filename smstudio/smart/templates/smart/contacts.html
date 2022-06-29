@@ -8,15 +8,16 @@
 <h1 class="contacts-title"> {{title}} </h1>
  <!-- общая обертка-->
 <div class="contacts-wrapper">
+
  <!-- обертка текстовой части-->
 <div class="contacts-info-wrapper">
  <!-- логотип с подписью-->
-<a href='{% url "home" %}'>
-<div> {{contacts_logo.annotations1}}</div>
+<a class="contacts-logo" href='{% url "home" %}'>
+<div class="contacts-logo"> {{contacts_logo.annotations1}}
  <img class="contacts-image"
           src="{{contacts_logo.image.url}}"
           alt="logo"
-        /></a>
+        /></div></a>
  <!-- конец логотип с подписью-->
 
  <!-- адрес-->
@@ -29,7 +30,7 @@
 
  <!-- телефоны-->
 <div class="contacts_phone">
-     <img class="nav_image"
+     <img class="nav_image-mini"
           src="{{contacts_phone.image.url}}"
           alt="logo"/>
     <a href="tel:{{short_phone1}}">{{contacts_phone.annotations1}}</a>
@@ -47,6 +48,8 @@
 <!-- конец email-->
 </div>
 <!-- конец обертка текстовой части-->
+
+
  <!-- карта-->
 <div class="map">
     {%autoescape off%}

@@ -16,8 +16,8 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=100, db_index=True, verbose_name='Новость')
-    content = models.TextField(blank=True, verbose_name='Текст новости')
+    title = models.CharField(max_length=100, db_index=True, verbose_name='Объявление')
+    content = models.TextField(blank=True, verbose_name='Текст объявления')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 
     def __str__(self):

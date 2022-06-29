@@ -31,15 +31,15 @@
         /></div></a>
 
         <a href='{% url "contacts" %}'>
-        <p>{{adressIcon.annotations2}}</p>
+        <p class="nav-contacts-link">{{adressIcon.annotations2}}</p>
         </a>
 
-
+      <a href='{% url "contacts" %}'>
       <div class="nav_item phone_item">
         <img class="nav_image"
           src="{{phoneIcon.image.url}}"
           alt="{{phoneIcon.title}}"
-        />
+        /></a>
         <p>{{phoneIcon.annotations1}}</p>
         <p>{{phoneIcon.annotations2}}</p>
       </div>
