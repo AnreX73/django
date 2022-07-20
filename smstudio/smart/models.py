@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -56,6 +57,7 @@ class Services(models.Model):
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
+    gallery_link = models.CharField(blank=True, max_length=100, verbose_name='ссылка на фотографии')
 
     def __str__(self):
         return self.title
@@ -104,4 +106,19 @@ class Extra(models.Model):
     class Meta:
         verbose_name = 'Дополнительную информацию'
         verbose_name_plural = '4.Дополнительная информация'
+        ordering = ['id']
+
+class Gallery(models.Model):
+    galleryLink = models.ForeignKey(Services, on_delete=models.PROTECT, verbose_name='Ссылка на услугу')
+    title = models.CharField(blank=True,max_length=100, verbose_name='Заголовок')
+    gallery_image = models.ImageField(upload_to="images",blank=True, verbose_name='Фото')
+    content = RichTextField(blank=True, verbose_name='Описание фотографии')
+    is_published = models.BooleanField(default=True, verbose_name='Публикация')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'фото в галерею'
+        verbose_name_plural = 'Галерея'
         ordering = ['id']

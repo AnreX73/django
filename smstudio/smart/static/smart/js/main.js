@@ -2,11 +2,49 @@
 /* библиотека для закрытия модальных окон без гемора*/
 !function(e){"function"!=typeof e.matches&&(e.matches=e.msMatchesSelector||e.mozMatchesSelector||e.webkitMatchesSelector||function(e){for(var t=this,o=(t.document||t.ownerDocument).querySelectorAll(e),n=0;o[n]&&o[n]!==t;)++n;return Boolean(o[n])}),"function"!=typeof e.closest&&(e.closest=function(e){for(var t=this;t&&1===t.nodeType;){if(t.matches(e))return t;t=t.parentNode}return null})}(window.Element.prototype);
 
-/* Получаем массив кнопок */
 document.addEventListener('DOMContentLoaded', function() {
-    var modalButtons = document.querySelectorAll('.js-open-modal'),
-        closeButtons = document.querySelectorAll('.js-modal-close'),
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        // direction: 'vertical',
+        loop: true,
+      
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 5000,
+        },
+        effect: 'cube',
+          cubeEffect: {
+           shadow: false,
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+      
+/* Получаем массив кнопок */
+    if (document.querySelector('.js-open-modal')){
+     var modalButtons = document.querySelectorAll('.js-open-modal');
+     }else {
+        return
+        }
+    if (document.querySelector('.js-modal-close')){
+        closeButtons = document.querySelectorAll('.js-modal-close');
+        }else {
+        return
+        }
         overlay      = document.querySelectorAll('.js-overlay-modal')
+
     /* Перебираем массив кнопок */
     modalButtons.forEach(function(item){
     /* Назначаем каждой кнопке обработчик клика */
@@ -48,6 +86,7 @@ overlay.forEach(function(item){
 });
 /* модальное окно для новости */
 document.addEventListener('DOMContentLoaded', function() {
+if (document.querySelector('.post-modal__cross')){
     overlay      = document.querySelector('#post-overlay-modal'),
     closeButton = document.querySelector('.post-modal__cross');
     modalElem = document.querySelector('.post-modal');
@@ -59,8 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },500)
         
       }
-    
-
     closeButton.addEventListener('click', function(e) {
         var parentModal = this.closest('.post-modal');
          sessionStorage.setItem("cookie-message", true);
@@ -84,5 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.post-modal.active').classList.remove('active');
         this.classList.remove('active');
       });
+}
+
 
 });

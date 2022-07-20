@@ -19,7 +19,27 @@
 
     <div class="item-description-wrapper">
         <div class="item-description-image"><img class="item_image" src="{{show_service.page_image.url}}" alt="{{serv.title}}"></div> 
-        <div class="item-description">{{show_service.annotation|safe}}</div> 
+        <div class="item-description">{{show_service.annotation|safe}}
+            <div class="item-gallery-link">{{show_service.gallery_link|safe}}</div> 
+            <div class="gallery-modal">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    {% for gal in gallery %}
+                    {% if gal.galleryLink_id == show_service.id %}
+                    <figure class="swiper-slide item-gal-image"><img class="gal_image" src="{{gal.gallery_image.url}}" alt="{{gal.title}}"><figcaption> {{gal.content|safe}}</figcaption></figure>
+                    {%endif%}
+                    {% endfor %}
+                </div> 
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            
+        </div>
+        </div>
+        </div> 
+       
     </div> 
 
     <div class="prices-wrapper">   
@@ -31,19 +51,24 @@
     <div class="price-block">
         <div><b>{{price.title}}</b></div>
         <div class="price-content">{{price.content|safe}}</div>
+        {% if price.extraLink %}
         <div class="price-link js-open-modal" data-modal="{{price.slug}}">{{price.extraLink}}</div>
-        
+         {% endif %}
         {% for extra in extracontent %}
-            {% if extra.extraContent_id == price.id %}  
+            {% if extra%}
+            {% if extra.extraContent_id == price.id %}
               <div class="extracontent-wrapper modal js-overlay-modal" data-modal="{{price.slug}}">
               <div class="extracontent">
                 <span class="close-extra js-modal-close">&times;</span>
                 <h1 class="extra-title">{{extra.title}}</h1>
+                {% if extra.image%}
                 <img class="extra-image" src="{{extra.extra_image.url}}" alt="{{extra.title}}"/> 
+                {%endif%} 
                 <div class="extra-paragraph"><p>{{extra.content|safe}}</p></div>
               </div>     
               </div>     
               {%endif%} 
+              {%endif%}
         {% endfor %}
     
 

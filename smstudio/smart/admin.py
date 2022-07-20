@@ -107,6 +107,21 @@ class ServicesAdmin(admin.ModelAdmin):
 
     getHtmlPhoto.short_description = 'миниатюра'
 
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'galleryLink', 'getHtmlPhoto', 'is_published')
+    list_display_links = ('id', )
+    search_fields = ('galleryLink',)
+    list_editable = ('is_published',)
+    list_filter = ('is_published', )
+    save_on_top = True
+
+    def getHtmlPhoto(self, picture):
+        if picture.gallery_image:
+            return mark_safe(f"<img src='{picture.gallery_image.url}' width=50>")
+
+    getHtmlPhoto.short_description = 'миниатюра'
+
+
 
 admin.site.register(Services, ServicesAdmin)
 admin.site.register(Category, CategoryAdmin)
@@ -114,5 +129,6 @@ admin.site.register(Nav, NavAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Prices, PricesAdmin)
 admin.site.register(Extra, ExtraAdmin)
+admin.site.register(Gallery, GalleryAdmin)
 
 admin.site.site_header = 'СМАРТ ФОТО'

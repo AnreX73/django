@@ -38,6 +38,7 @@ def show_service(request, service_slug):
         'title': service.title,
         'services': Services.objects.filter(cat_id=1),
         'souvenirs': Services.objects.filter(cat_id=2),
+        'gallery': Gallery.objects.all(),
         'prices': Prices.objects.all(),
         'extracontent': Extra.objects.all(),
     }
