@@ -497,12 +497,34 @@ margin-top:20px;
   max-width: 100%;
   }
 
-
+/* Стили для модальных окон */
+.gallery-overlay{
+   
+  /* Скрываем подложку  */
+  opacity: 0;
+  visibility: hidden;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 20;
+  transition: .3s all;
+}
 
   .gallery-modal{
+      
+    opacity: 0;
+    visibility: hidden;
     position: fixed;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
+
+   
+    
+    
     /*  Центрируем и задаем z-index */
     position: fixed;
     top: 30%;
@@ -515,21 +537,55 @@ margin-top:20px;
     text-align: center;
     padding: 30px;
     border-radius: 8px;
-    background:rgb(238, 235, 230);
+    background:rgb(248, 247, 246);
     transition: 0.5s all;
     /* display: none; */
   }
+  .gallery-modal.active{
+    opacity: 1;
+    visibility: visible;
+ }
+  .gallery-overlay.active{
+   opacity: 1;
+   visibility: visible;
+}
 
-  .swiper {
+  /* .swiper {
     max-width: 300px;
     height: auto;
+    
+  } */
+  .swiper-wrapper{
+    top: 20px;
+    bottom: 30px;
   }
   .item-gal-image{
     text-align: center;
   }
   .gal_image{
-    max-width: 200px;
+    max-width: 300px;
   }
+  .gal-text{
+    overflow: auto;
+    max-height: 200px;
+    
+  }
+  .left-arrow{
+    height: 30px;
+  } 
+  .swiper-button-prev::after, .swiper-button-next::after{
+    color:#F56700;
+    font-size: 20px !important; 
+  }
+  .swiper-pagination{
+    bottom: 0px !important;
+  }
+  .swiper-pagination-bullet{
+    background-color:black !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
 
 .prices-wrapper{
 padding:20px;

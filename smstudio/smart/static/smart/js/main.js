@@ -11,20 +11,25 @@ document.addEventListener('DOMContentLoaded', function() {
         // If we need pagination
         pagination: {
           el: '.swiper-pagination',
+          clickable:true,
+          
         },
-        autoplay: {
-            delay: 5000,
+
+        grabCursor:true,
+
+        mousewheel:{
+          eventTarget:".swiper",
         },
-        effect: 'cube',
-          cubeEffect: {
-           shadow: false,
-        },
+
+        autoHeight: true,
       
         // Navigation arrows
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+
+        
       
         // And if we need scrollbar
         scrollbar: {
@@ -32,6 +37,42 @@ document.addEventListener('DOMContentLoaded', function() {
         },
       });
       
+/* Модальное окно  галереи*/
+
+if (document.querySelector('.item-gallery-link')){
+  var openGallery = document.querySelectorAll('.item-gallery-link');
+  }else {
+     return
+     }
+
+if (document.querySelector('.gallery-close')){
+  closeGallery = document.querySelectorAll('.gallery-close');
+      }else {
+    return
+    }
+     
+  galleryOverlay =  document.querySelector('#gallery-overlay-modal'); 
+  
+      /* Перебираем массив кнопок */
+      openGallery.forEach(function(item){
+        /* Назначаем каждой кнопке обработчик клика */
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            /* ищем модальное окно по атрибуту кнопки */
+            var modalId = this.getAttribute('data-gallery-link');
+            
+            modalElem = document.querySelector('.gallery-modal[data-gallery ="' + modalId + '"]');
+            modalElem.classList.add('active');
+            galleryOverlay.classList.add('active');
+         });
+
+    });
+  
+  
+
+
+
+/* Модальное окно дополнительной информации */
 /* Получаем массив кнопок */
     if (document.querySelector('.js-open-modal')){
      var modalButtons = document.querySelectorAll('.js-open-modal');
@@ -83,6 +124,7 @@ overlay.forEach(function(item){
      });
 });
 
+
 });
 /* модальное окно для новости */
 document.addEventListener('DOMContentLoaded', function() {
@@ -94,7 +136,7 @@ if (document.querySelector('.post-modal__cross')){
     if (checkElem == undefined) {
         setTimeout(function(){
             modalElem.classList.add('active');
-            overlay.classList.add('active');;
+            overlay.classList.add('active');
         },500)
         
       }
