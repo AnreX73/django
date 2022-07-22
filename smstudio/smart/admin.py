@@ -109,7 +109,7 @@ class ServicesAdmin(admin.ModelAdmin):
 
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ('id', 'galleryLink', 'getHtmlPhoto', 'is_published')
-    list_display_links = ('id', )
+    list_display_links = ('id','getHtmlPhoto' )
     search_fields = ('galleryLink',)
     list_editable = ('is_published',)
     list_filter = ('is_published', )

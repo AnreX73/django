@@ -555,35 +555,36 @@ margin-top:20px;
     height: auto;
     
   } */
-  .swiper-wrapper{
-    top: 20px;
-    bottom: 30px;
-  }
+
   .item-gal-image{
     text-align: center;
   }
   .gal_image{
     max-width: 300px;
+    
   }
   .gal-text{
     overflow: auto;
     max-height: 200px;
+    padding:10px 30px;
     
   }
-  .left-arrow{
+  .left-arrow, .right-arrow{
     height: 30px;
+    color:#F56700;
+
   } 
   .swiper-button-prev::after, .swiper-button-next::after{
-    color:#F56700;
-    font-size: 20px !important; 
+    font-size: 20px ;
   }
-  .swiper-pagination{
-    bottom: 0px !important;
+
+  .gal-pagination{
+  bottom: 0px;
   }
   .swiper-pagination-bullet{
-    background-color:black !important;
-    width: 20px !important;
-    height: 20px !important;
+    background-color:black;
+    width: 20px ;
+    height: 20px ;
   }
 
 

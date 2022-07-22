@@ -24,7 +24,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-
     class Meta:
         verbose_name = 'Объявление'
         verbose_name_plural = '6.Объявление'
@@ -91,7 +90,7 @@ class Prices(models.Model):
 
 class Extra(models.Model):
     extraContent = models.ForeignKey(Prices, on_delete=models.PROTECT, verbose_name='Дополнительня информация о...')
-    extra_image = models.ImageField(upload_to="images",blank=True, verbose_name='Изображение если есть')
+    extra_image = models.ImageField(upload_to="images", blank=True, verbose_name='Изображение если есть')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
     content = models.TextField(blank=True, verbose_name='Подробное описание')
@@ -99,7 +98,7 @@ class Extra(models.Model):
 
     def __str__(self):
         return self.title
-        
+
     def get_absolute_url(self):
         return reverse('show_service', kwargs={'service_slug': self.slug})
 
@@ -108,10 +107,11 @@ class Extra(models.Model):
         verbose_name_plural = '4.Дополнительная информация'
         ordering = ['id']
 
+
 class Gallery(models.Model):
     galleryLink = models.ForeignKey(Services, on_delete=models.PROTECT, verbose_name='Ссылка на услугу')
-    title = models.CharField(blank=True,max_length=100, verbose_name='Заголовок')
-    gallery_image = models.ImageField(upload_to="images",blank=True, verbose_name='Фото')
+    title = models.CharField(blank=True, max_length=100, verbose_name='Заголовок')
+    gallery_image = models.ImageField(upload_to="images", blank=True, verbose_name='Фото')
     content = RichTextField(blank=True, verbose_name='Описание фотографии')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
 

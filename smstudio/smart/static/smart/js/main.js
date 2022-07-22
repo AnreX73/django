@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
           eventTarget:".swiper",
         },
 
-        autoHeight: true,
+       
       
         // Navigation arrows
         navigation: {
@@ -65,8 +65,23 @@ if (document.querySelector('.gallery-close')){
             modalElem.classList.add('active');
             galleryOverlay.classList.add('active');
          });
+         
+        });
 
+        closeGallery.forEach(function(item){
+          item.addEventListener('click', function(e) {
+             var parentModal = this.closest('.gallery-modal');
+             parentModal.classList.remove('active');
+             galleryOverlay.classList.remove('active');  
+          });
+      
+       });
+        /* скрытие окна при клике на подложку */
+      galleryOverlay.addEventListener('click', function() {
+      document.querySelector('.gallery-modal.active').classList.remove('active');
+      this.classList.remove('active');
     });
+
   
   
 
@@ -167,3 +182,4 @@ if (document.querySelector('.post-modal__cross')){
 
 
 });
+

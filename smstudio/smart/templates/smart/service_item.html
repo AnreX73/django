@@ -24,13 +24,15 @@
             <div class="gallery-overlay" id="gallery-overlay-modal"></div>
             <div class="gallery-modal" data-gallery="{{show_service.slug}}">
                 <span class="close-extra gallery-close">&times;</span>
-            <div class="swiper">
-                <div class="swiper-wrapper">
+            <div class="image-slider swiper">
+                <div class="slider-wrapper swiper-wrapper">
                     {% for gal in gallery %}
                     {% if gal.galleryLink_id == show_service.id %}
                     <div class="gal-content swiper-slide">  
                       <div class="item-gal-image" >
+                          {% if gal.gallery_image %}
                         <img class="gal_image" src="{{gal.gallery_image.url}}" alt="{{gal.title}}">
+                          {% endif %}
                       </div>
                       <div class="gal-text"> {{gal.content|safe}}</div>
                    </div> 
@@ -38,7 +40,7 @@
                     {% endfor %}
                     
                 </div> 
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination gal-pagination"></div>
 
             <!-- If we need navigation buttons -->
             <div class="left-arrow swiper-button-prev"></div>
