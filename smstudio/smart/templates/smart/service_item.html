@@ -52,26 +52,24 @@
        
     </div> 
 
-    <div class="prices-wrapper">   
+    <div class="prices-wrapper">
         {% for price in prices %}
         {% if price.is_published %}
-
         {% if price.service_id == show_service.id %}
-
-    <div class="price-block">
-        <div><b>{{price.title}}</b></div>
-        <div class="price-content">{{price.content|safe}}</div>
-        {% if price.extraLink %}
-        <div class="price-link js-open-modal" data-modal="{{price.slug}}">{{price.extraLink}}</div>
-         {% endif %}
-        {% for extra in extracontent %}
+        <div class="price-block">
+            <div><b>{{price.title}}</b></div>
+            <div class="price-content">{{price.content|safe}}</div>
+            {% if price.extraLink %}
+                <div class="price-link js-open-modal" data-modal="{{price.slug}}">{{price.extraLink}}</div>
+            {% endif %}
+            {% for extra in extracontent %}
             {% if extra%}
             {% if extra.extraContent_id == price.id %}
-              <div class="extracontent-wrapper modal js-overlay-modal" data-modal="{{price.slug}}">
+              <div class="extracontent-wrapper-modal" data-modal-div="{{price.slug}}">
               <div class="extracontent">
-                <span class="close-extra js-modal-close">&times;</span>
+                <span class="extra-close close-extra">&times;</span>
                 <h1 class="extra-title">{{extra.title}}</h1>
-                {% if extra.image%}
+                {% if extra.extra_image%}
                 <img class="extra-image" src="{{extra.extra_image.url}}" alt="{{extra.title}}"/> 
                 {%endif%} 
                 <div class="extra-paragraph"><p>{{extra.content|safe}}</p></div>
@@ -80,14 +78,14 @@
               {%endif%} 
               {%endif%}
         {% endfor %}
-    
-
         </div>
+
         {%endif%}
         {%endif%}
         {% endfor %}
 
-    </div>
+
+   </div>
     
    
         

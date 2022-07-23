@@ -78,69 +78,51 @@ if (document.querySelector('.gallery-close')){
        });
         /* скрытие окна при клике на подложку */
       galleryOverlay.addEventListener('click', function() {
+        if (document.querySelector('.gallery-modal.active')){
       document.querySelector('.gallery-modal.active').classList.remove('active');
+    }
       this.classList.remove('active');
     });
 
-  
-  
-
-
-
-/* Модальное окно дополнительной информации */
 /* Получаем массив кнопок */
-    if (document.querySelector('.js-open-modal')){
-     var modalButtons = document.querySelectorAll('.js-open-modal');
-     }else {
-        return
-        }
-    if (document.querySelector('.js-modal-close')){
-        closeButtons = document.querySelectorAll('.js-modal-close');
-        }else {
-        return
-        }
-        overlay      = document.querySelectorAll('.js-overlay-modal')
+if (document.querySelector('.js-open-modal')){
+  var modalButtons = document.querySelectorAll('.js-open-modal');
+  }else {
+     return
+     }
+   
+    if (document.querySelector('.extra-close')){
+      closeButtons = document.querySelectorAll('.extra-close');
+      }else {
+      return
+      }   
+      modalButtons.forEach(function(item){
+        /* Назначаем каждой кнопке обработчик клика */
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            /* ищем модальное окно по атрибуту кнопки */
+            var modalId = this.getAttribute('data-modal');
+            modalElem = document.querySelector('.extracontent-wrapper-modal[data-modal-div ="' + modalId + '"]');
+            
+            modalElem.classList.add('active');
+            galleryOverlay.classList.add('active');
+         });  
+         closeButtons.forEach(function(item){
+          item.addEventListener('click', function(e) {
+             var parentModal = this.closest('.extracontent-wrapper-modal');
+             parentModal.classList.remove('active');
+             galleryOverlay.classList.remove('active');  
+          });  
+          galleryOverlay.addEventListener('click', function() {
+            openModalWindow = document.querySelector('.extracontent-wrapper-modal.active');
+            this.classList.remove('active');
+            if (document.querySelector('.extracontent-wrapper-modal.active')){
+            openModalWindow.classList.remove('active');
+            }
+            
+            
+          });
 
-    /* Перебираем массив кнопок */
-    modalButtons.forEach(function(item){
-    /* Назначаем каждой кнопке обработчик клика */
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        /* ищем модальное окно по атрибуту кнопки */
-        var modalId = this.getAttribute('data-modal');
-        modalElem = document.querySelector('.js-overlay-modal[data-modal="' + modalId + '"]');
-        modalElem.style.display = 'block';
-     });
-});
-closeButtons.forEach(function(item){
-    item.addEventListener('click', function(e) {
-       var parentModal = this.closest('.modal');
-       parentModal.style.display = 'none';  
-    });
-
- });
- document.body.addEventListener('keyup', function (e) {
-    var key = e.keyCode;
-    if (key == 27) {
-        openModal = document.querySelectorAll('.modal');
-        openModal.forEach(function(item){
-            item.style.display = 'none';
-        });
-    };
-}, false);
-
-overlay.forEach(function(item){
-    /* Назначаем каждой кнопке обработчик клика */
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        /* ищем модальное окно по атрибуту кнопки */
-        var closeModal = this.closest('.modal');
-        closeModal.style.display = 'none';
-     });
-});
-
-
-});
 /* модальное окно для новости */
 document.addEventListener('DOMContentLoaded', function() {
 if (document.querySelector('.post-modal__cross')){
@@ -159,8 +141,7 @@ if (document.querySelector('.post-modal__cross')){
         var parentModal = this.closest('.post-modal');
          sessionStorage.setItem("cookie-message", true);
          parentModal.classList.remove('active');
-         overlay.classList.remove('active');
-         
+         overlay.classList.remove('active');  
       });
 
        /* закрытие по ESC */
@@ -181,5 +162,8 @@ if (document.querySelector('.post-modal__cross')){
 }
 
 
+});
+});
+});
 });
 
